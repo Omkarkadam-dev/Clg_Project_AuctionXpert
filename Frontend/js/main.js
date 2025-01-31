@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const auctionItems = document.querySelectorAll(".auction-item");
         auctionItems.forEach((item) => {
             let bidPrice = item.querySelector(".current-bid");
-            let currentPrice = parseFloat(bidPrice.textContent.replace('$', '').replace(',', ''));
-            bidPrice.textContent = `$${(currentPrice + Math.random() * 100).toFixed(2)}`;
+            let currentPrice = parseFloat(bidPrice.textContent.replace('₹', '').replace(',', ''));
+            bidPrice.textContent = `₹${(currentPrice + Math.random() * 100).toFixed(2)}`;
         });
     }, 3000); // Update every 3 seconds
 
@@ -72,50 +72,83 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".testimonial-slide");
-    const totalSlides = slides.length;
+    const testimonials = document.querySelectorAll(".testimonial");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    let currentIndex = 0;
 
-    const showSlide = (index) => {
-        // Ensure the index is within bounds
-        if (index >= totalSlides) {
-            currentSlide = 0;
-        } else if (index < 0) {
-            currentSlide = totalSlides - 1;
-        } else {
-            currentSlide = index;
-        }
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.classList.remove("active");
+            if (i === index) {
+                testimonial.classList.add("active");
+            }
+        });
+    }
 
-        // Move the slider
-        const slideContainer = document.querySelector(".testimonial-slider");
-        slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-    };
-
-    // Add event listeners for controls
-    document.getElementById("next").addEventListener("click", () => {
-        showSlide(currentSlide + 1);
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(currentIndex);
     });
 
-    document.getElementById("prev").addEventListener("click", () => {
-        showSlide(currentSlide - 1);
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentIndex);
     });
 
     // Auto-slide every 5 seconds
     setInterval(() => {
-        showSlide(currentSlide + 1);
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(currentIndex);
     }, 5000);
-});
 
+    // Show the first testimonial on load
+    showTestimonial(currentIndex);
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const ctaButton = document.querySelector(".cta-btn");
 
-    // Smooth Scroll to Sign-Up Section (assuming there is a signup section with id 'signup')
-    ctaButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        const target = document.getElementById("signup");
-        target.scrollIntoView({ behavior: "smooth" });
+    ctaButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        alert("Redirecting to Auction Page...");
+        window.location.href = "auction-page.html"; // Change URL as needed
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const ctaButton = document.querySelector(".cta-btn");
 
+    ctaButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        alert("Redirecting to Auction Page...");
+        window.location.href = "auction-page.html"; // Change URL as needed
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("password");
+
+    // Toggle password visibility
+    togglePassword.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+            passwordInput.type = "password";
+            togglePassword.classList.replace("fa-eye-slash", "fa-eye");
+        }
+    });
+
+    // Form Validation
+    document.getElementById("loginForm").addEventListener("submit", (event) => {
+        const email = document.getElementById("email").value;
+        const password = passwordInput.value;
+
+        if (!email.includes("@") || password.length < 6) {
+            event.preventDefault();
+            alert("Invalid email or password must be at least 6 characters!");
+        }
+    });
+});

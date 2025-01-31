@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
 <body>
 
     <!-- HEADER SECTION -->
@@ -26,18 +28,11 @@
             </ul>
         </nav>
         <div class="auth-buttons">
-            <a href="#" class="login-btn">Login</a>
-            <a href="#" class="signup-btn">Sign Up</a>
+            <a href="/Frontend/auth/login.html" class="login-btn">Login</a>
+            <a href="/Frontend/auth/signup.html" class="signup-btn">Sign Up</a>
             <button class="menu-toggle"><i class="fas fa-bars"></i></button>
         </div>
     </header>
-
-    <!-- Placeholder for Content -->
-    <section class="hero">
-        <h1>Bid. Win. Own – The Future of Auctions Starts Here!</h1>
-        <p>Join the most transparent and exciting bidding platform for exclusive deals.</p>
-        <a href="#" class="cta-btn">Start Bidding</a>
-    </section>
 
     <!-- HERO SECTION -->
     <section class="hero">
@@ -61,10 +56,10 @@
             <h2>Featured Auctions <span class="highlight">Live & Trending</span></h2>
             <div class="auctions-grid">
                 <div class="auction-item">
-                    <img src="https://source.unsplash.com/400x300/?watch,auction" alt="Auction Item">
+                    <img src="/Frontend/img/Luxury_Watch.jpg" alt="Auction Item">
                     <div class="auction-info">
                         <h3>Luxury Watch</h3>
-                        <p class="current-bid">$1,200</p>
+                        <p class="current-bid">₹1,200</p>
                         <div class="bid-status">
                             <span>Time Left: 3h 20m</span>
                             <button class="bid-btn">Place Bid</button>
@@ -72,10 +67,10 @@
                     </div>
                 </div>
                 <div class="auction-item">
-                    <img src="https://source.unsplash.com/400x300/?vintage,car" alt="Auction Item">
+                    <img src="/Frontend/img/Vintage_Car.jpg" alt="Auction Item">
                     <div class="auction-info">
                         <h3>Vintage Car</h3>
-                        <p class="current-bid">$25,000</p>
+                        <p class="current-bid">₹25,000</p>
                         <div class="bid-status">
                             <span>Time Left: 12h 45m</span>
                             <button class="bid-btn">Place Bid</button>
@@ -83,10 +78,10 @@
                     </div>
                 </div>
                 <div class="auction-item">
-                    <img src="https://source.unsplash.com/400x300/?artwork,auction" alt="Auction Item">
+                    <img src="/Frontend/img/Famous_Painting.jpg" alt="Auction Item">
                     <div class="auction-info">
                         <h3>Famous Painting</h3>
-                        <p class="current-bid">$8,500</p>
+                        <p class="current-bid">₹8,500</p>
                         <div class="bid-status">
                             <span>Time Left: 2d 3h</span>
                             <button class="bid-btn">Place Bid</button>
@@ -183,45 +178,61 @@
         </div>
     </section>
 
-     <!-- Testimonials Section -->
+    <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
             <h2>What Our Users Say</h2>
-            <p>Our platform is trusted by thousands of bidders. Hear from our satisfied users.</p>
-            
-            <!-- Testimonial Slider -->
+            <p>See why thousands of users trust AuctionXpert for their auction needs.</p>
+
             <div class="testimonial-slider">
-                <div class="testimonial-slide">
-                    <p>"AuctionXpert made it so easy for me to bid on exclusive items. I love the real-time bidding experience!"</p>
-                    <h3>John Doe</h3>
-                    <span>Happy Customer</span>
+                <div class="testimonial active">
+                    <p>"AuctionXpert is the best auction platform I've used! The real-time bidding feature is
+                        fantastic!"</p>
+                    <div class="user">
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User 1">
+                        <div>
+                            <h3>Omkar Kadam</h3>
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-slide">
-                    <p>"I was able to get my dream item at a price I never imagined. It's a fantastic platform!"</p>
-                    <h3>Jane Smith</h3>
-                    <span>Frequent Bidder</span>
+
+                <div class="testimonial">
+                    <p>"I love how secure and user-friendly AuctionXpert is. I’ve won amazing items here!"</p>
+                    <div class="user">
+                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="User 2">
+                        <div>
+                            <h3>Jimmy Maxell</h3>
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-slide">
-                    <p>"The secure payment options and user-friendly interface made me trust AuctionXpert for my bids!"</p>
-                    <h3>Robert Brown</h3>
-                    <span>Trusted Bidder</span>
+
+                <div class="testimonial">
+                    <p>"A fantastic auction experience! The platform is seamless and easy to navigate."</p>
+                    <div class="user">
+                        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="User 3">
+                        <div>
+                            <h3>Kevin Kumar</h3>
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Slider Controls -->
-            <div class="slider-controls">
-                <button id="prev" class="slider-btn"><i class="fas fa-chevron-left"></i></button>
-                <button id="next" class="slider-btn"><i class="fas fa-chevron-right"></i></button>
+            <div class="testimonial-nav">
+                <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
 
     <!-- Call-to-Action Section -->
     <section class="cta">
-        <div class="container">
-            <h2>Ready to Bid? Don't Miss Out!</h2>
-            <p>Join AuctionXpert today and be a part of the most exciting and secure online auctions!</p>
-            <a href="#signup" class="cta-btn">Get Started Now</a>
+        <div class="cta-container">
+            <h2>Ready to Win Your Next Bid?</h2>
+            <p>Join thousands of users in real-time auctions and grab exclusive deals.</p>
+            <a href="#" class="cta-btn">Start Bidding Now</a>
         </div>
     </section>
 
@@ -230,34 +241,38 @@
         <div class="footer-container">
             <div class="footer-logo">
                 <h2>AuctionXpert</h2>
-                <p>Empowering You to Bid, Win, and Save!</p>
+                <p>Your Trusted Online Auction Platform</p>
             </div>
-            
+
             <div class="footer-links">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#auctions">Auctions</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Live Auctions</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
 
             <div class="footer-social">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <p>&copy; 2025 AuctionXpert. All Rights Reserved.</p>
         </div>
+
+        <button class="scroll-to-top"><i class="fas fa-chevron-up"></i></button>
     </footer>
 
 </body>
+
 </html>
