@@ -112,19 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ctaButton.addEventListener("click", (event) => {
         event.preventDefault();
         alert("Redirecting to Auction Page...");
-        window.location.href = "auction-page.html"; // Change URL as needed
+        window.location.href = "/Frontend/nav/Start-Bidding.html";
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const ctaButton = document.querySelector(".cta-btn");
 
-    ctaButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        alert("Redirecting to Auction Page...");
-        window.location.href = "auction-page.html"; // Change URL as needed
-    });
-});
 
 document.addEventListener("DOMContentLoaded", () => {
     const togglePassword = document.getElementById("togglePassword");
