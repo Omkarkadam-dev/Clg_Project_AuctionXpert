@@ -1,4 +1,8 @@
-/* Dark theme color palette */
+*{
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --primary-color: #ffcc00;
     --background-dark: #222;
