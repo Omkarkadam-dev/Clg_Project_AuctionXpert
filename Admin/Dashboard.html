@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuctionXpert Admin Dashboard</title>
+    <link rel="stylesheet" href="/Admin/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Admin Dashboard Header -->
+    <header class="admin-header">
+        <div class="logo">
+            <i class="fa-solid fa-gavel"></i>
+            <span>AuctionXpert Admin</span>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." id="searchInput">
+            <button><i class="fa-solid fa-search"></i></button>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fa-solid fa-hammer"></i> Auctions</a></li>
+                <li><a href="#"><i class="fa-solid fa-users"></i> Users</a></li>
+                <li><a href="#"><i class="fa-solid fa-file-alt"></i> Reports</a></li>
+                <li><a href="#"><i class="fa-solid fa-cog"></i> Settings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Admin Profile Dropdown -->
+        <div class="profile-dropdown">
+            <button class="profile-btn">
+                <i class="fa-solid fa-user-circle"></i>
+                Admin
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
+                <li><a href="#"><i class="fa-solid fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </header>
+
+     <!-- Admin Hero Section -->
+     <section class="admin-hero">
+        <div class="hero-content">
+            <h1>Welcome, <span>Admin</span> 👋</h1>
+            <p>Manage auctions, track bids, and oversee transactions effortlessly.</p>
+        </div>
+
+        <!-- Admin Dashboard Stats -->
+        <div class="stats-container">
+            <div class="stat-box">
+                <i class="fa-solid fa-gavel"></i>
+                <h3 id="total-auctions">0</h3>
+                <p>Total Auctions</p>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-users"></i>
+                <h3 id="total-users">0</h3>
+                <p>Registered Users</p>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <h3 id="total-bids">0</h3>
+                <p>Total Bids</p>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3 id="total-revenue">₹0</h3>
+                <p>Total Revenue</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Auction Monitoring Section -->
+    <section class="live-auction-monitoring">
+        <h2><i class="fa-solid fa-gavel"></i> Live Auction Monitoring</h2>
+        <p>Track live bids and manage ongoing auctions in real time.</p>
+
+        <div class="auction-list">
+            <!-- Auction Item 1 -->
+            <div class="auction-item">
+                <img src="/Frontend/img/Rolex Submariner.jpg" alt="Auction Item">
+                <div class="item-details">
+                    <h3>Luxury Rolex Watch</h3>
+                    <p><i class="fa-solid fa-tag"></i> Current Bid: <span class="current-bid">₹75,000</span></p>
+                    <p><i class="fa-solid fa-clock"></i> Time Left: <span class="time-left">05:12</span></p>
+                    <div class="admin-controls">
+                        <button class="pause-auction"><i class="fa-solid fa-pause"></i> Pause</button>
+                        <button class="resume-auction"><i class="fa-solid fa-play"></i> Resume</button>
+                        <button class="end-auction"><i class="fa-solid fa-stop"></i> End</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auction Item 2 -->
+            <div class="auction-item">
+                <img src="/Frontend/img/Vintage_Car.jpg" alt="Auction Item">
+                <div class="item-details">
+                    <h3>Vintage Car Model</h3>
+                    <p><i class="fa-solid fa-tag"></i> Current Bid: <span class="current-bid">₹3,50,000</span></p>
+                    <p><i class="fa-solid fa-clock"></i> Time Left: <span class="time-left">12:45</span></p>
+                    <div class="admin-controls">
+                        <button class="pause-auction"><i class="fa-solid fa-pause"></i> Pause</button>
+                        <button class="resume-auction"><i class="fa-solid fa-play"></i> Resume</button>
+                        <button class="end-auction"><i class="fa-solid fa-stop"></i> End</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Manage Users Section -->
+     <section class="manage-users">
+        <h2><i class="fa-solid fa-users"></i> Manage Users</h2>
+        <p>View and manage registered users on AuctionXpert.</p>
+
+        <!-- Search & Filter Bar -->
+        <div class="user-search">
+            <input type="text" id="searchUser" placeholder="Search users...">
+            <select id="filterRole">
+                <option value="all">All Roles</option>
+                <option value="admin">Admin</option>
+                <option value="buyer">Buyer</option>
+                <option value="seller">Seller</option>
+            </select>
+        </div>
+
+        <!-- User Table -->
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userList">
+                <tr>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>Buyer</td>
+                    <td><span class="status active">Active</span></td>
+                    <td>
+                        <button class="edit-user"><i class="fa-solid fa-pen"></i></button>
+                        <button class="block-user"><i class="fa-solid fa-ban"></i></button>
+                        <button class="delete-user"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>jane@example.com</td>
+                    <td>Seller</td>
+                    <td><span class="status inactive">Inactive</span></td>
+                    <td>
+                        <button class="edit-user"><i class="fa-solid fa-pen"></i></button>
+                        <button class="block-user"><i class="fa-solid fa-ban"></i></button>
+                        <button class="delete-user"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+    <script src="/Admin/js/dashboard.js"></script>
+</body>
+</html>
