@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let current = start;
         let increment = range / (duration / 10);
         let element = document.getElementById(id);
-        
+
         let timer = setInterval(() => {
             current += increment;
             element.textContent = Math.floor(current);
@@ -129,6 +129,151 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".delete-user").forEach(button => {
         button.addEventListener("click", function () {
             this.closest("tr").remove();
+        });
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchAuction");
+    const filterStatus = document.getElementById("filterStatus");
+    const auctionList = document.getElementById("auctionList");
+    const auctions = Array.from(auctionList.getElementsByTagName("tr"));
+
+    // Search Function
+    searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        auctions.forEach(row => {
+            const itemName = row.getElementsByTagName("td")[0].innerText.toLowerCase();
+            row.style.display = itemName.includes(query) ? "" : "none";
+        });
+    });
+
+    // Filter by Status
+    filterStatus.addEventListener("change", function () {
+        const status = this.value;
+        auctions.forEach(row => {
+            const auctionStatus = row.getElementsByTagName("td")[3].innerText.toLowerCase();
+            row.style.display = (status === "all" || auctionStatus === status) ? "" : "none";
+        });
+    });
+
+    // Action Buttons
+    document.querySelectorAll(".edit-auction").forEach(button => {
+        button.addEventListener("click", function () {
+            alert("Edit auction functionality coming soon!");
+        });
+    });
+
+    document.querySelectorAll(".close-auction").forEach(button => {
+        button.addEventListener("click", function () {
+            this.closest("tr").querySelector(".status").classList.toggle("closed");
+        });
+    });
+
+    document.querySelectorAll(".delete-auction").forEach(button => {
+        button.addEventListener("click", function () {
+            this.closest("tr").remove();
+        });
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchHistory");
+    const filterHistory = document.getElementById("filterHistory");
+    const historyList = document.getElementById("historyList");
+    const transactions = Array.from(historyList.getElementsByTagName("tr"));
+
+    // Search Function
+    searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        transactions.forEach(row => {
+            const bidderName = row.getElementsByTagName("td")[0].innerText.toLowerCase();
+            const itemName = row.getElementsByTagName("td")[1].innerText.toLowerCase();
+            row.style.display = (bidderName.includes(query) || itemName.includes(query)) ? "" : "none";
+        });
+    });
+
+    // Filter by Status
+    filterHistory.addEventListener("change", function () {
+        const status = this.value;
+        transactions.forEach(row => {
+            const transactionStatus = row.getElementsByTagName("td")[3].innerText.toLowerCase();
+            row.style.display = (status === "all" || transactionStatus === status) ? "" : "none";
+        });
+    });
+
+    // Action Buttons
+    document.querySelectorAll(".view-details").forEach(button => {
+        button.addEventListener("click", function () {
+            alert("View details functionality coming soon!");
+        });
+    });
+
+    document.querySelectorAll(".delete-transaction").forEach(button => {
+        button.addEventListener("click", function () {
+            this.closest("tr").remove();
+        });
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchReports");
+    const filterReports = document.getElementById("filterReports");
+    const reports = Array.from(document.getElementsByClassName("report-card"));
+
+    // Search Functionality
+    searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        reports.forEach(report => {
+            const reportTitle = report.getElementsByTagName("h3")[0].innerText.toLowerCase();
+            report.style.display = reportTitle.includes(query) ? "" : "none";
+        });
+    });
+
+    // Filter by Report Type
+    filterReports.addEventListener("change", function () {
+        const filter = this.value;
+        reports.forEach(report => {
+            const reportTitle = report.getElementsByTagName("h3")[0].innerText.toLowerCase();
+            if (filter === "all") {
+                report.style.display = "";
+            } else {
+                report.style.display = reportTitle.includes(filter) ? "" : "none";
+            }
+        });
+    });
+
+    // Action for Viewing Reports
+    document.querySelectorAll(".view-report").forEach(button => {
+        button.addEventListener("click", function () {
+            alert("Detailed report functionality coming soon!");
+        });
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".cta-btn").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            alert("This feature is coming soon!");
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".footer-links a").forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            alert("This feature is coming soon!");
         });
     });
 });
